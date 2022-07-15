@@ -6,6 +6,7 @@ require('dotenv').config()
 const cattleRouter = require('./routes/Cattle.route')
 const noteRouter = require('./routes/Note.route')
 const userRouter = require('./routes/User.route')
+const breedingRouter = require('./routes/Breeding.route')
 
 const app = express()
 const PORT = process.env.PORT || 8000
@@ -24,5 +25,6 @@ mongoose.connect("mongodb+srv://fyaz_rayat:123rubaiRayat@cluster0.tndut.mongodb.
 app.use('/cattle', cattleRouter)
 app.use('/note', noteRouter)
 app.use('/user', userRouter)
+app.use('/breeding', breedingRouter)
 
 app.listen(PORT, () => console.log('server on port 8000'))

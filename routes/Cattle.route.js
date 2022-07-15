@@ -76,6 +76,18 @@ router.put('/notes/update/:id',(req, res) => {
     })
 })
 
+router.put('/breeding/update/:id', (req, res) => {
+    Cattle.findByIdAndUpdate(req.params.id, {
+        $push: {
+            breeding: req.body.id
+        }
+    }).then(doc => {
+        res.json(doc)
+    }).catch(err => {
+        res.json(err)
+    })
+})
+
 
 router.get('/:id', (req, res) => {
     Cattle.findById(req.params.id)
@@ -87,6 +99,35 @@ router.get('/:id', (req, res) => {
         res.json(all)
     }).catch(err => {
         res.json(err) 
+    })
+})
+
+router.put('/dam/:id', (req, res) => {
+    Cattle.findByIdAndUpdate(req.params.id, {
+        dam: req.body.id
+    }).then(doc => {
+        res.json(doc)
+    }).catch(err => {
+        res.json(err)
+    })
+})
+
+router.put('/sire/:id', (req, res) => {
+    Cattle.findByIdAndUpdate(req.params.id, {
+        sire: req.body.id
+    }).then(doc => {
+        res.json(doc)
+    }).catch(err => {
+        res.json(err)
+    })
+})
+
+router.put('/disposition/:id', (req,res) => {
+    Cattle.findByIdAndUpdate(req.params.id, {
+        disposition: {
+            date: req.body.date,
+            cause: req.body.cause
+        }
     })
 })
 

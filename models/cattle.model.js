@@ -15,7 +15,7 @@ const Cattle = new mongoose.Schema({
         {type:mongoose.Schema.Types.ObjectId, ref: 'Note' }
     ],
     breeding: [
-        {date: Date, name: String, procedure: String, timer: String}
+        {type: mongoose.Schema.Types.ObjectId, ref: 'Breeding'}
     ],
     disposition: {
         date: {
